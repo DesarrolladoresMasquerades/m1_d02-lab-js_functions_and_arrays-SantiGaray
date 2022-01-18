@@ -1,41 +1,147 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a
+  } else {
+    return b
+}
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+const result = ""
+
+function findLongestWord(arrNew) {
+ let count = arrNew.length
+
+  if (count === 1 ){
+    return arrNew[0]
+  } else if (count === 0){
+    return null
+  } else {
+
+    let result = "";
+
+    for (let i = 0; i < arrNew.length; i++) {
+      if (result.length < arrNew[i].length) {
+        result = arrNew[i];
+      }
+    }
+    return result
+  } 
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrSum) {
+  if (arrSum.length === 0) {
+      return 0
+  } else {
+    let result = 0
+    for (i = 0; i < arrSum.length; i++){
+      result += arrSum[i]
+    }
+    return result
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+
+function sum(arr2Sum) {
+  if(arr2Sum.length === 0) return 0 
+  
+    let result = 0
+    for (i = 0; i < arr2Sum.length; i++){
+      
+      switch (typeof(arr2Sum[i])) {
+        case  "string":
+          result += arr2Sum[i].length
+        break;
+        case  "number":
+          result +=  arr2Sum[i]
+        break;
+        case  "boolean":
+          if (arr2Sum[i] === true) {
+          result += 1
+          } 
+        break;
+
+        default: 
+        throw new Error("Unsupported data type sir or ma'am")
+        break;
+      }
+    }
+    return result
+  }
+  
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(averArray) {
+  if(averArray.length === 0) return null
+
+  let totArr = 0
+
+  for (i = 0; i < averArray.length; i++){
+    totArr += averArray[i]
+  }
+  return totArr / averArray.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+function averageWordLength(averArray2) { 
+if(averArray2.length === 0) return null
+  let totArr = 0
+  for (i = 0; i < averArray2.length; i++){
+    totArr += averArray2[i].length
+  }
+  return totArr / averArray2.length
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr2Sum) {
+  if(arr2Sum.length === 0) return null
+  
+    let result = 0
+    for (i = 0; i < arr2Sum.length; i++){
+      
+      switch (typeof(arr2Sum[i])) {
+        case  "string":
+          result += arr2Sum[i].length
+        break;
+        case  "number":
+          result +=  arr2Sum[i]
+        break;
+        case  "boolean":
+          if (arr2Sum[i] === true) {
+          result += 1
+          } 
+        break;
+
+        default: 
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+    return result / arr2Sum.length
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
