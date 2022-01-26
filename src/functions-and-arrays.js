@@ -1,4 +1,4 @@
-// Iteration #1: Find the maximum
+//Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if (a > b) {
     return a
@@ -6,6 +6,7 @@ function maxOfTwoNumbers(a, b) {
     return b
 }
 }
+
 
 
 // Iteration #2: Find longest word
@@ -54,7 +55,6 @@ function sumNumbers(arrSum) {
 
 // Iteration #3.1 Bonus:
 
-
 function sum(arr2Sum) {
   if(arr2Sum.length === 0) return 0 
   
@@ -73,15 +73,13 @@ function sum(arr2Sum) {
           result += 1
           } 
         break;
-
         default: 
         throw new Error("Unsupported data type sir or ma'am")
-        break;
       }
     }
     return result
   }
-  
+
 
 
 // Iteration #4: Calculate the average
@@ -103,44 +101,34 @@ function averageNumbers(averArray) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-
-function averageWordLength(averArray2) { 
-if(averArray2.length === 0) return null
-  let totArr = 0
-  for (i = 0; i < averArray2.length; i++){
-    totArr += averArray2[i].length
+function averageWordLength(wordsArr) { 
+  if(wordsArr.length === 0) {
+    return null
   }
-  return totArr / averArray2.length
+  let totArr = 0
+  for (i = 0; i < wordsArr.length; i++){
+    totArr += wordsArr[i].length
+  }
+  return totArr / wordsArr.length
 }
 
-
 // Bonus - Iteration #4.1
-function avg(arr2Sum) {
-  if(arr2Sum.length === 0) return null
-  
-    let result = 0
-    for (i = 0; i < arr2Sum.length; i++){
-      
-      switch (typeof(arr2Sum[i])) {
-        case  "string":
-          result += arr2Sum[i].length
-        break;
-        case  "number":
-          result +=  arr2Sum[i]
-        break;
-        case  "boolean":
-          if (arr2Sum[i] === true) {
-          result += 1
-          } 
-        break;
 
-        default: 
-        throw new Error("Unsupported data type sir or ma'am")
+  function avg(arr) {
+    if ( arr.length === 0) return null;
+    let result = 0
+    for (let i = 0; i < arr.length; i++){
+      if(typeof arr[i] === "string"){
+        result += arr[i].length
+      } else if(typeof arr[i] === "number"){
+        result += arr[i]
+      } else if(arr[i] === true){
+        result += 1
+      } else if( Array.isArray(arr[i]) || typeof arr[i] === "object"){
+        throw new Error ("Unsupported data type sir or ma'am")
       }
     }
-    return result / arr2Sum.length
-
-
+    return Math.round((result/arr.length)*100)/100
 }
 
 // Iteration #5: Unique arrays
@@ -158,14 +146,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+if (arr.length === 0) return null
+newArr =[]
+for (let i = 0; i < arr.length; i++){
+  if (newArr.indexOf(arr[i]) == -1) newArr.push(arr[i])
+  else
+  newArr = newArr
+}
+return newArr
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null
+  
+  for (let i = 0; i < arr.length; i++) {
+    if ( arr[i] === word) return true
+  }
+  return false
+}
 
 
 
@@ -184,7 +189,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr,word) {
+  if (arr.length === 0) return 0
+  counter = 0
+  for (let i = 0; i < arr.length; i++) {
+    if ( arr[i] === word) counter++
+  }
+  return counter
+}
+
 
 
 
@@ -212,10 +225,36 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
 
+if (arr.length === 0) return 0
 
+subTotalVert = 0
+subTotalHoriz = 0
+totalVert = 0
+totalHoriz = 0
 
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr.length; j++) {
+
+    if((i+3) < arr[i].length){
+      subTotalHoriz = (arr[i][j] * arr[i+1][j] * arr[i+2][j] * arr[i+3][j]);
+      if(subTotalHoriz > totalHoriz) {totalHoriz = subTotalHoriz}
+    }
+
+    if((j+3) < arr[j].length){
+      subTotalVert = (arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3]);
+      if (subTotalVert > totalVert) {totalVert = subTotalVert}
+    }
+
+  }
+}
+   
+
+if (subTotalHoriz >= subTotalVert) return subTotalHoriz
+else return subTotalVert
+
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
