@@ -140,6 +140,8 @@ You can use the following array to test your solution:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // should return: 57
+
+
 ```
 
 <br>
